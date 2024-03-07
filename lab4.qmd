@@ -76,5 +76,14 @@ M[n+m+p:dim,n+m:n+m+p] = np.diag(z)
 M[n+m+p:dim,n+m+p:dim] = np.diag(mu)
 
 dd = np.linalg.det(M)
+print("Determinante de M")
 print(dd)
+
+# Solución del sistema lineal
+
+dw = np.linalg.solve(M,-ld)
+dw= dw[0:n]
+dy = dw[n:n+m]
+dmu = dw[n+m:n+m+p]
+dz = dw[n+m+p:dim]
 ```
