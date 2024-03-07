@@ -20,6 +20,8 @@ n=8
 m=4
 p=10
 
+np.random.seed(0)  # Fija la semilla aleatoria a 0
+
 # Creamos matriz Q para el problema cuadrático
 Q=np.random.rand(n,n)
 Q = np.tril(Q)
