@@ -1,0 +1,14 @@
+---
+title: "OPTI-  Lab 4"
+lang: es
+author: 
+  - Marcelino Sánchez Rodríguez 191654
+date: today
+format:
+  pdf:
+    latex_engine: xelatex
+---
+
+```{python}
+
+```
