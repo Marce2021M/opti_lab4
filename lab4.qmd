@@ -42,7 +42,8 @@ z = np.ones(p)
 
 
 # ----------------------------------
-
+# Lado derecho del sistema lineal
+tau = 1/2
 v1 = np.dot(Q,x) + np.dot(A.T,y) + np.dot(F.T,mu) + c
 
 v2 = np.dot(A,x) - b
@@ -82,8 +83,15 @@ print(dd)
 # Solución del sistema lineal
 
 dw = np.linalg.solve(M,-ld)
-dw= dw[0:n]
+dx= dw[0:n]
 dy = dw[n:n+m]
 dmu = dw[n+m:n+m+p]
 dz = dw[n+m+p:dim]
 ```
+
+# ¿Cómo se va mu?
+```{python}
+for i in range(len(mu)):
+  print([mu[i], dmu[i]])
+```
+
