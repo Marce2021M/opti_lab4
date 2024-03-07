@@ -49,6 +49,30 @@ v3 = -np.dot(F,x)
 
 v4 = np.multiply(mu,z)
 
-
 ld = np.concatenate((v1,v2,v3,v4),0)
+
+# ----------------------------------
+# Matriz de newton
+
+dim = n+m+p+p
+
+M = np.zeros((dim,dim))
+
+M[0:n,0:n] = Q
+
+M[0:n,n:n+m] = A.T
+M[0:n,n+m:n+m+p] = -F.T
+
+M[n:n+m,0:n] = A
+
+M[n+m:n+m+p,0:n] = -F
+
+M[n+m:n+m+p,n+m+p:n+m+p+p] = np.identity(p)
+
+M[n+m+p:dim,n+m:n+m+p] = np.diag(z)
+
+M[n+m+p:dim,n+m+p:dim] = np.diag(mu)
+
+dd = np.linalg.det(M)
+print(dd)
 ```
