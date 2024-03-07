@@ -9,6 +9,46 @@ format:
     latex_engine: xelatex
 ---
 
-```{python}
+# Método de puntos interiores
 
+![Anotaciones de clase](anotaciones.jpeg "Anotaciones de clase")
+
+
+```{python}
+import numpy as np
+n=8
+m=4
+p=10
+
+# Creamos matriz Q para el problema cuadrático
+Q=np.random.rand(n,n)
+Q = np.tril(Q)
+Q = np.dot(Q,Q.T)
+
+A = np.random.rand(m,n)
+b = np.ones(m)
+F = np.random.rand(p,n)
+d = np.random.rand(p)
+c = np.ones(n)
+
+# Variables iniciales
+
+x = np.ones(n)
+y= np.ones(m)
+mu = np.ones(p)
+z = np.ones(p)
+
+
+# ----------------------------------
+
+v1 = np.dot(Q,x) + np.dot(A.T,y) + np.dot(F.T,mu) + c
+
+v2 = np.dot(A,x) - b
+
+v3 = -np.dot(F,x)
+
+v4 = np.multiply(mu,z)
+
+
+ld = np.concatenate((v1,v2,v3,v4),0)
 ```
